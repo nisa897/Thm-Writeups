@@ -18,7 +18,7 @@ Pickle Rick; kaynak kod inceleme, web keşfi ve komut çalıştırmaya odaklanan
 - **Kaynak Kod Analizi:** Ana sayfanın HTML kaynak kodunda (`Ctrl + U`) yorum satırı içerisine gizlenmiş kullanıcı adı bulundu.
 - **Robots.txt:** `/robots.txt` dizini kontrol edildi ve açık metin (cleartext) parola ifadesi elde edildi.
 
-### 2. İlk Erişim ve Komut Çalıştırma (Initial Access)
+### 2. İlk Erişim ve Komut Çalıştırma 
 - `10.10.x.x/login.php` adresine gidilerek elde edilen kullanıcı adı ve parola ile giriş yapıldı.
 - **Command Panel** (`/portal.php`) ekranına erişim sağlandı.
 - **Komut Filtrelerini Atlatma :** Web filtresi `cat` gibi temel komutları engellediği için alternatif dosya okuma komutlarından olan 'less' kullanılarak veriler çıkarıldı:
@@ -27,11 +27,9 @@ Pickle Rick; kaynak kod inceleme, web keşfi ve komut çalıştırmaya odaklanan
   less "/home/rick/second ingredients"
 
 ### 3. Yetki Yükseltme
-- 'ls -la' komutunu çalıştırınca sadece root kullanıcısının erişebildiği dosyalar görüldü.
-- Mevcut www-data kullanıcısının sudo yetkileri kontrol için ;
-```bash
-sudo -l '''
-komutu kullanıldı.
+- Dizin içeriği `ls -la` komutu ile incelendikten sonra, mevcut `www-data` kullanıcısının sistemdeki `sudo` yetkilerini kontrol etmek amacıyla aşağıdaki komut çalıştırıldı:
+  ```bash
+  sudo -l
 - www-data kullanıcısının şifresiz bir şekilde tüm komutları root yetkisiyle çalıştırabileceği ((ALL) NOPASSWD: ALL) görüldü.
 -/root dizininde bulunan son bayrak okundu.
 ```bash

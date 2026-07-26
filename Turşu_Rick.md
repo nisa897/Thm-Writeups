@@ -30,7 +30,7 @@ Pickle Rick; kaynak kod inceleme, web keşfi ve komut çalıştırmaya odaklanan
 - 'ls -la' komutunu çalıştırınca sadece root kullanıcısının erişebildiği dosyalar görüldü.
 - Mevcut www-data kullanıcısının sudo yetkileri kontrol için ;
 ```bash
-sudo -l 
+sudo -l '''
 komutu kullanıldı.
 - www-data kullanıcısının şifresiz bir şekilde tüm komutları root yetkisiyle çalıştırabileceği ((ALL) NOPASSWD: ALL) görüldü.
 -/root dizininde bulunan son bayrak okundu.
